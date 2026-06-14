@@ -1,0 +1,15 @@
+﻿version: '3.8'
+services:
+  chronos-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: chronos_prediction_engine
+    ports:
+      - "8000:8000"
+    volumes:
+      - hf_model_cache:/root/.cache/huggingface
+    restart: unless-stopped
+volumes:
+  hf_model_cache:
+    name: hf_model_cache_volume
