@@ -9,10 +9,33 @@ app_file: app.py
 pinned: false
 ---
 
-# BBCA Stock Forecast — Fine-tuned Chronos
+# BBCA Stock Forecast - Fine-tuned Chronos
 
-A lightweight demo showing a Chronos time-series model fine-tuned on BBCA (Bank
-Central Asia, IDX) closing prices. On load, it:
+A lightweight, interactive web application showcasing Amazon's **Chronos** time-series forecasting model, fine-tuned specifically on historical closing prices for **Bank Central Asia (BBCA, IDX)**.
+
+**Training Dataset:** The model was trained on historical daily data spanning from **April 16, 2001, to January 6, 2023**.
+
+**Live Space:** [BBCA-Forecaster on Hugging Face](https://huggingface.co/spaces/SkibidiBreaddd/BBCA-Forecaster)
+
+---
+
+## Features
+
+On application load, the system seamlessly handles the following:
+* **Real-time Data Fetching:** Automatically pulls the latest historical closing prices for BBCA.
+* **Chronos Inference:** Passes the data through the fine-tuned Chronos forecasting pipeline.
+* **Interactive Visualizations:** Renders historical trends alongside future probabilistic prediction intervals.
+
+---
+
+## Tech Stack & Architecture
+
+* **Model Architecture:** Amazon Chronos (Fine-tuned for IDX:BBCA)
+* **Dashboard Framework:** Streamlit
+* **Data Source:** `yfinance` (or your specific API)
+* **Deployment:** Hugging Face Spaces
+
+---
 
 1. Pulls the latest BBCA.JK daily closes from Yahoo Finance.
 2. Takes the most recent 512 closes (the context length the model was fine-tuned
