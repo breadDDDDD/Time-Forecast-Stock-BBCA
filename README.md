@@ -1,13 +1,13 @@
----
-title: BBCA Chronos Forecast
-emoji: 📈
-colorFrom: blue
-colorTo: green
-sdk: gradio
-sdk_version: 5.29.0
-app_file: app.py
-pinned: false
----
+;; ---
+;; title: BBCA Chronos Forecast
+;; emoji: 📈
+;; colorFrom: blue
+;; colorTo: green
+;; sdk: gradio
+;; sdk_version: 5.29.0
+;; app_file: app.py
+;; pinned: false
+;; ---
 
 # BBCA Stock Forecast - Fine-tuned Chronos
 
