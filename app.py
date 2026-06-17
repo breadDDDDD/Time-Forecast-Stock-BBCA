@@ -21,8 +21,7 @@ MODEL_ID = "SkibidiBreaddd/BBCA-Chronos-14062026-v0"
 TICKER = "BBCA.JK"
 CONTEXT = 512
 HORIZON = 5
-
-HF_TOKEN = os.environ.get("HF_TOKEN")  # only needed if the model repo is private/gated
+HF_TOKEN = os.environ.get("HF_TOKEN")
 
 _pipeline = None
 
@@ -77,7 +76,7 @@ def run_forecast():
 
     pipeline = get_pipeline()
     quantiles, _mean = pipeline.predict_quantiles(
-        context=context_window,
+        inputs=context_window.unsqueeze(0),   # Bolt expects shape [batch, time]
         prediction_length=HORIZON,
         quantile_levels=[0.1, 0.5, 0.9],
     )
@@ -165,12 +164,12 @@ def run_forecast():
 
 with gr.Blocks(title="BBCA Chronos Forecast", theme=gr.themes.Soft()) as demo:
     gr.Markdown(
-        "# 📈 BBCA Stock Forecast — Fine-tuned Chronos\n"
+        "# BBCA Stock Forecast - Fine-tuned Chronos\n"
         f"Forecasts the next **{HORIZON} trading days** of Bank Central Asia (`{TICKER}`) "
         f"closing price using a Chronos model fine-tuned on {CONTEXT}-day context windows "
         f"(`{MODEL_ID}`). Historical prices are pulled live from Yahoo Finance."
     )
-    btn = gr.Button("🔁 Refresh forecast", variant="primary")
+    btn = gr.Button("Refresh forecast", variant="primary")
     summary_box = gr.Markdown()
     plot = gr.Plot()
     table = gr.Dataframe(label=f"Next {HORIZON} trading days", interactive=False)
