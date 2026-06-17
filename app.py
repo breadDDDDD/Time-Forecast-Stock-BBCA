@@ -169,6 +169,15 @@ with gr.Blocks(title="BBCA Chronos Forecast", theme=gr.themes.Soft()) as demo:
         f"closing price using a Chronos model fine-tuned on {CONTEXT}-day context windows "
         f"(`{MODEL_ID}`). Historical prices are pulled live from Yahoo Finance."
     )
+    gr.HTML(
+    """
+    <div style="background:#ef4444;border:1.5px solid #b91c1c;border-radius:8px;padding:12px 16px;color:#ffffff;font-size:0.95rem;font-weight:bold;">
+        ⚠️ Disclaimer: Do not take this data at face value. This is purely a side project
+        by the owner and is not financial advice. Forecasts may be inaccurate;
+        always do your own research before making any investment decisions.
+    </div>
+    """
+    )
     btn = gr.Button("Refresh forecast", variant="primary")
     summary_box = gr.Markdown()
     plot = gr.Plot()
