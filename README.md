@@ -47,9 +47,8 @@ python app.py
 
 1. Create a new Space → SDK: **Gradio**.
 2. Push `app.py`, `requirements.txt`, and this `README.md` to the Space repo.
-3. If `SkibidiBreaddd/BBCA-Chronos-14062026-v0` is a private/gated model, add an
-   `HF_TOKEN` secret in the Space settings (Settings → Variables and secrets) —
-   the app will pick it up automatically. If it's public, no token is needed.
+3. `SkibidiBreaddd/BBCA-Chronos-14062026-v0` is a public model, add an
+   `HF_TOKEN` secret in the Space settings (Settings → Variables and secrets) — if wanted, due to it being public an API isn't necessary.
 4. CPU Basic (free tier) is enough to run inference for a model this size.
 
 ## Notes / limitations
